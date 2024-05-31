@@ -62,9 +62,10 @@ body {
   width: 100%;
   height:100%;
   min-height: 400px;
-  margin: 30px auto;
+  margin: 0 auto;
   display: flex;
   justify-content:center;
+  align-items: start;
   background-color: var(--focus-color);
   border-radius: 10px;
   box-shadow: 0 0 12px 2px var(--focus-color) ;
@@ -74,6 +75,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr ;
   margin-top: 20px;
+  color:var(--text-color-main)
   
 }
 
@@ -82,21 +84,19 @@ body {
   width: 20px;
   height: 20px;
   margin-right: 15px;
-  color:var(--text-color-main)
 }
 
 /* ul container */
 .todo__list--element {
   list-style: none;
-  padding: 10px;
+  padding: 5px;
 }
 
-/* single task li */
-.task {
-  width: 50%;
+/* single task span */
+.task { 
   color: var(--text-color-main);
-  word-break: break-all;
- 
+  word-wrap: break-word;
+
 }
 
 .rotate {
@@ -111,7 +111,7 @@ body {
   opacity: 0.15;
   filter:drop-shadow(2px 2px 12px  var(--focus-color) );
   z-index: -1;
-  animation:bg-rotate 26s infinite linear alternate; 
+  animation:bg-rotate 36s infinite linear alternate; 
 }
 .rotate1 {
   background-position: 100% 100%;
@@ -147,12 +147,42 @@ body {
   width: 50px;
   margin: 0 auto;
   background-color: var(--main-bg-color);
-  transition: .2s linear;
+  transition: .28s linear;
 }
 .btn-submit:hover {
   background-color: var(--focus-color);
   width: 100%;
   color: var(--text-color-main)
+}
+
+@media(width < 600px)
+{
+  :root{
+    --title-sizing: 1.3rem ;
+    --list-sizing: 1rem;
+    --btn-text-sizing: 1rem;
+  }
+  .todo__list--container{
+    width: 80%;
+  }
+  .todo__list--order {
+    grid-template-columns: 1fr;
+  }  
+}
+
+@media(600px < width < 900px)
+{
+  :root{
+    --title-sizing: 1.3rem ;
+    --list-sizing: 1rem;
+    --btn-text-sizing: 1rem;
+  }
+
+  .todo__list--container,
+  .todo__form input{
+    width: 80%;   
+  }
+
 }
 @keyframes bg-rotate {
 
