@@ -12,7 +12,7 @@ export default function App() {
   });
 
   useEffect(() => {
-    localStorage.setItem("Items", JSON.stringify(newList))
+    localStorage.setItem("ITEMS", JSON.stringify(newList))
   }, [newList])
 
   function handleSubmit(e) {
