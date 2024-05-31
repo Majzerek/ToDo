@@ -8,8 +8,8 @@
   --second-bg-color: ;
   --focus-color: #2D4059;
   --text-color-main: #E5E5E5;
-  --title-sizing: 2rem ;
-  --list-sizing: 1.7rem;
+  --title-sizing: 2.8rem ;
+  --list-sizing:2.2rem;
   --btn-text-sizing: 1.3rem;
   --btn-delete-color: #F02A71;
   --btn-delete-hover: #EA5455;
@@ -40,7 +40,7 @@ body {
 .todo__list {
   font-size: var(--list-sizing);
   margin: 0 auto;
-  
+ 
 }
 .todo__form input {
   font-size: var(--list-sizing);
@@ -64,39 +64,38 @@ body {
   min-height: 400px;
   margin: 0 auto;
   display: flex;
-  justify-content:center;
-  align-items: start;
+  justify-content:space-evenly;
+  align-items:flex-start;
   background-color: var(--focus-color);
   border-radius: 10px;
   box-shadow: 0 0 12px 2px var(--focus-color) ;
-  
 }
 .todo__list--order {
   display: grid;
   grid-template-columns: 1fr 1fr ;
-  margin-top: 20px;
+  gap: 10px;
+  margin: 20px auto;
   color:var(--text-color-main)
-  
 }
 
 
 .todo__list--order input {
   width: 20px;
   height: 20px;
-  margin-right: 15px;
+
 }
 
 /* ul container */
 .todo__list--element {
   list-style: none;
   padding: 5px;
+  
 }
 
 /* single task span */
 .task { 
   color: var(--text-color-main);
   word-wrap: break-word;
-
 }
 
 .rotate {
