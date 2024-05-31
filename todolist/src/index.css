@@ -4,17 +4,22 @@
   box-sizing: border-box;
 }
 :root {
-  --main-bg-color: ;
+  --main-bg-color: #DECDC3;
   --second-bg-color: ;
+  --focus-color: #2D4059;
+  --text-color-main: #E5E5E5;
   --title-sizing: 2rem ;
   --list-sizing: 1.7rem;
-  --btn-text-sizing: 1.3rem
+  --btn-text-sizing: 1.3rem;
+  --btn-delete-color: #F02A71;
+  --btn-delete-hover: #EA5455;
 }
 body {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   height: 100vh;
   max-width: 800px;
   margin: 0 auto;
+  background-color: var(--main-bg-color);
 }
 
 .todo {
@@ -40,35 +45,55 @@ body {
   line-height: 30px;
   text-align: center;
   border-radius: 10px;
+  transition: .2s linear;
 }
 .todo__form input:focus-visible{
-  background-color: royalblue;
-  color: #fff
+  background-color: var(--focus-color);
+  color: #fff;
+  box-shadow: 0 0 5px 3px var(--focus-color)
 }
+
+/* container with list element */
 .todo__list--container{
   width: 100%;
-  height: 90%;
+  height:100%;
+  min-height: 400px;
   margin: 30px auto;
-  text-align: center;
+  display: flex;
+  justify-content:center;
+  background-color: var(--focus-color);
+  border-radius: 10px;
+  box-shadow: 0 0 12px 2px var(--focus-color) ;
+  
 }
 .todo__list--order {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-}
-.todo__list--order input {
-  margin-right: 15px;
-}
-.todo__list--element {
-  display: flex;
-  list-style: none;
-  justify-content: space-around;
-  padding: 10px;
-}
-.task {
-  width: 50%;
-  margin: 0 auto;
+  grid-template-columns: 1fr 1fr ;
+  margin-top: 20px;
+  
 }
 
+
+.todo__list--order input {
+  width: 20px;
+  height: 20px;
+  margin-right: 15px;
+}
+
+/* ul container */
+.todo__list--element {
+  list-style: none;
+  padding: 10px;
+}
+
+/* single task li */
+.task {
+  width: 50%;
+  color: var(--text-color-main);
+  word-break: break-all;
+ 
+}
+/* buttons */
 
 .btn {
   font-size: var(--btn-text-sizing);
@@ -76,16 +101,32 @@ body {
   border-radius: 10px;
   border: none;
   cursor: pointer;
-transition: .1s linear;
+  transition: .1s linear;
 }
-.btn:hover {
-  background-color:grey;
-}
+
 
 .btn-delete {
   margin-left: 15px;
   width: 80px;
+  background-color: var(--btn-delete-color);
+  color: #14103B;
+  transition: .2s linear;
+}
+.btn-delete:hover {
+  background-color: var(--btn-delete-hover);
+  color: #fff;
+
 }
 .btn-submit {
+  height: 30px;
   margin-top: 10px;
+  width: 50px;
+  margin: 0 auto;
+  background-color: var(--main-bg-color);
+  transition: .2s linear;
+}
+.btn-submit:hover {
+  background-color: var(--focus-color);
+  width: 100%;
+  color: var(--text-color-main)
 }
