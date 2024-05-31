@@ -1,9 +1,19 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function App() {
-  const [newTask, setNewTask] = useState('');
-  const [newList, setNewList] = useState([]);
 
+  const [newTask, setNewTask] = useState('');
+
+  const [newList, setNewList] = useState(() => {
+    const localValue = localStorage.getItem("ITEMS")
+    if (!localValue) return [];
+
+    return JSON.parse(localValue)
+  });
+
+  useEffect(() => {
+    localStorage.setItem("Items", JSON.stringify(newList))
+  }, [newList])
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -41,7 +51,7 @@ export default function App() {
                 <label>
                   <input type='checkbox' onChange={() => handleToggle(task.id)} />
                   <span className='task' style={task.complete ? { color: 'grey', textDecoration: 'line-through' } : {}}>{task.task}</span>
-                  <button className='btn btn-delete'onClick={() => handleDelete(task.id)}>Delete</button>
+                  <button className='btn btn-delete' onClick={() => handleDelete(task.id)}>Delete</button>
                 </label>
               </li>)}
           </ul>
@@ -59,7 +69,7 @@ function Title({ onSubmit, onNewTask, onTask }) {
         <label>
           <input type='text' value={onTask} onChange={(e) => onNewTask(e.target.value)} />
         </label>
-        <button className='btn btn-submit'type='submit'>Add</button>
+        <button className='btn btn-submit' type='submit'>Add</button>
       </form>
     </div>)
 }
