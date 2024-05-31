@@ -60,6 +60,7 @@ export default function App() {
           </ul>
         </div>
       </div>
+      <Footer list={newList} />
       
     </>
   );
@@ -76,4 +77,14 @@ function Title({ onSubmit, onNewTask, onTask }) {
         <button className='btn btn-submit' type='submit'>Add</button>
       </form>
     </div>)
+}
+
+function Footer({ list }) {
+  return (
+    <>
+      <footer className='todo'>{!list.length && "Waiting for task's"
+      }</footer>{list.length &&
+        <footer className='todo'>Currently you have {list.length} task's to do.</footer>}
+    </>
+  )
 }
