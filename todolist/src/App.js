@@ -34,14 +34,14 @@ export default function App() {
 
       <div className='todo__list'>
         <div className='todo__list--container'>
-          <ul>
+          <ul className='todo__list--order'>
             {!newList.length && "No new Task"}
             {newList.map(task =>
-              <li key={task.id}>
+              <li className='todo__list--element' key={task.id}>
                 <label>
                   <input type='checkbox' onChange={() => handleToggle(task.id)} />
-                  <span className='task' style={task.complete ? { color: 'grey' } : {}}>{task.task}</span>
-                  <button onClick={() => handleDelete(task.id)}>Delete</button>
+                  <span className='task' style={task.complete ? { color: 'grey', textDecoration: 'line-through' } : {}}>{task.task}</span>
+                  <button className='btn btn-delete'onClick={() => handleDelete(task.id)}>Delete</button>
                 </label>
               </li>)}
           </ul>
@@ -53,13 +53,13 @@ export default function App() {
 
 function Title({ onSubmit, onNewTask, onTask }) {
   return (
-    <div className="ToDo">
+    <div className="todo">
       <h1>To Do App for you😄</h1>
       <form className='todo__form' onSubmit={onSubmit}>
         <label>
           <input type='text' value={onTask} onChange={(e) => onNewTask(e.target.value)} />
         </label>
-        <button type='submit'>Add</button>
+        <button className='btn btn-submit'type='submit'>Add</button>
       </form>
     </div>)
 }
