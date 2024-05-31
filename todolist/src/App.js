@@ -20,21 +20,18 @@ export default function App() {
     setNewTask('')
   }
 
+  function handleToggle(id) {
+    setNewList(currTask => currTask.map(task => task.id === id ? { ...task, complete: !task.complete } : task))
+  }
+
   function handleDelete(id) {
     setNewList(currTask => currTask.filter(task => task.id !== id)
     )
   }
   return (
     <>
-      <div className="ToDo">
-        <h1>To Do App for you😄</h1>
-        <form className='todo__form' onSubmit={handleSubmit}>
-          <label>
-            <input type='text' value={newTask} onChange={(e) => setNewTask(e.target.value)} />
-          </label>
-          <button type='submit'>Add</button>
-        </form>
-      </div>
+      <Title onSubmit={handleSubmit} onTask={newTask} onNewTask={setNewTask} />
+
       <div className='todo__list'>
         <div className='todo__list--container'>
           <ul>
@@ -42,8 +39,8 @@ export default function App() {
             {newList.map(task =>
               <li key={task.id}>
                 <label>
-                  <input type='checkbox' />
-                  <span className='task'>{task.task}</span>
+                  <input type='checkbox' onChange={() => handleToggle(task.id)} />
+                  <span className='task' style={task.complete ? { color: 'grey' } : {}}>{task.task}</span>
                   <button onClick={() => handleDelete(task.id)}>Delete</button>
                 </label>
               </li>)}
@@ -54,4 +51,15 @@ export default function App() {
   );
 }
 
-
+function Title({ onSubmit, onNewTask, onTask }) {
+  return (
+    <div className="ToDo">
+      <h1>To Do App for you😄</h1>
+      <form className='todo__form' onSubmit={onSubmit}>
+        <label>
+          <input type='text' value={onTask} onChange={(e) => onNewTask(e.target.value)} />
+        </label>
+        <button type='submit'>Add</button>
+      </form>
+    </div>)
+}
