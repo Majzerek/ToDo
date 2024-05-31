@@ -39,7 +39,10 @@ export default function App() {
     )
   }
   return (
+    
     <>
+    <div className='rotate'></div>
+    <div className='rotate rotate1'></div>
       <Title onSubmit={handleSubmit} onTask={newTask} onNewTask={setNewTask} />
 
       <div className='todo__list'>
@@ -57,6 +60,7 @@ export default function App() {
           </ul>
         </div>
       </div>
+      
     </>
   );
 }
