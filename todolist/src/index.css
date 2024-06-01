@@ -59,6 +59,7 @@ body {
 
 /* container with list element */
 .todo__list--container{
+  position: relative;
   width: 100%;
   height:100%;
   min-height: 400px;
@@ -69,12 +70,12 @@ body {
   align-items:start;
   background-color: var(--focus-color);
   border-radius: 10px;
-  box-shadow: 0 0 12px 2px var(--focus-color) ;
+  box-shadow: 0 0 12px 2px var(--focus-color);
 }
 .todo__list--order {
   display: grid;
   grid-template-columns: 1fr 1fr ;
-  gap: 10px;
+  gap: 5px;
   margin: 0 auto;
   color:var(--text-color-main)
 }
@@ -83,6 +84,7 @@ body {
 .todo__list--order input {
   width: 20px;
   height: 20px;
+  margin-right: 15px;
 }
 
 /* ul container */
@@ -90,6 +92,12 @@ body {
   list-style: none;
   padding: 5px;
   
+}
+.empty {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 /* single task span */

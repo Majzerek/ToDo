@@ -7,7 +7,7 @@ export function TodoList({ list, onToggle, onDelete }) {
             <div className='todo__list'>
                 <div className='todo__list--container'>
                     <ul className='todo__list--order'>
-                        {!list.length && "No new Task"}
+                        {!list.length && <span className="empty">No new Task</span>}
                         {list.map(task => <li className='todo__list--element' key={task.id}>
                             <label>
                                 <input type='checkbox' onChange={() => onToggle(task.id)} />

@@ -44,7 +44,7 @@ export default function App() {
   return (
     
     <div>
-      <Title onSubmit={handleSubmit} onTask={newTask} onNewTask={setNewList} />
+      <Title onSubmit={handleSubmit} onTask={newTask} onNewTask={setNewTask} />
       <TodoList newTask={newTask} onDelete={handleDelete} onToggle={handleToggle} list={newList} />
       <Footer list={newList} />
 
